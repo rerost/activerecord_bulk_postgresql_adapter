@@ -529,7 +529,7 @@ end
 ActiveSupport.on_load(:active_record) do
   ActiveRecord::ConnectionAdapters.register(
     "activerecord_bulk_postgresql",
-    "ActiveRecordBulkPostgresqlAdapter::Adapter",
+    "ActiverecordBulkPostgresqlAdapter::Adaptor",
     "activerecord_bulk_postgresql_adapter"
   )
 end
