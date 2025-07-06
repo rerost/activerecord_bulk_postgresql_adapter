@@ -1,6 +1,6 @@
-require "activerecord_bulk_postgresql_adapter/version"
-
 # frozen_string_literal: true
+
+require "activerecord_bulk_postgresql_adapter/version"
 require "active_record/connection_adapters/postgresql_adapter"
 require "active_record/connection_adapters/postgresql/schema_definitions"
 
@@ -522,4 +522,8 @@ class ActiverecordBulkPostgresqlAdapter < ActiveRecord::ConnectionAdapters::Post
       end
     end || []
   end
+end
+
+ActiveSupport.on_load(:active_record) do
+  ActiveRecord::ConnectionAdapters.register("activerecord_bulk_postgresql", "ActiverecordBulkPostgresqlAdapter", "activerecord_bulk_postgresql_adapter")
 end
