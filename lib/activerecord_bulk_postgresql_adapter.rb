@@ -5,7 +5,7 @@ require "active_record/connection_adapters/postgresql_adapter"
 require "active_record/connection_adapters/postgresql/schema_definitions"
 
 module ActiverecordBulkPostgresqlAdapter
-  class adaptor < ActiveRecord::ConnectionAdapters::PostgreSQLAdapter
+  class Adaptor < ActiveRecord::ConnectionAdapters::PostgreSQLAdapter
     ADAPTER_NAME = "ActiverecordBulkPostgresql".freeze
 
     def initialize(...)
