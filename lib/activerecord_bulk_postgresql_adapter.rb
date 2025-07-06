@@ -537,8 +537,8 @@ end
 
 ActiveSupport.on_load(:active_record) do
   ActiveRecord::ConnectionAdapters.register(
-    "bulk_postgresql",
+    "bulk-postgresql",
     "ActiveRecord::ConnectionAdapters::BulkPostgreSQLAdaptor",
-    "bulk_postgresql"
+    "bulk-postgresql"
   )
 end
