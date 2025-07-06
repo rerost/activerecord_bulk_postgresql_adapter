@@ -4,6 +4,7 @@ require "activerecord_bulk_postgresql_adapter/version"
 require "active_record/connection_adapters/postgresql_adapter"
 require "active_record/connection_adapters/postgresql/schema_definitions"
 require "active_record/connection_adapters/postgresql/schema_statements"
+require "pg"
 
 module ActiveRecord
   module ConnectionAdapters
@@ -525,6 +526,10 @@ module ActiveRecord
             end
           end
         end || []
+      end
+
+      def decode_string_array(value)
+        PG::TextDecoder::Array.new.decode(value)
       end
     end
   end
