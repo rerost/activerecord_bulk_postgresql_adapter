@@ -171,13 +171,13 @@ module ActiverecordBulkPostgresqlAdapter
           inddef = row[3]
           comment = row[4]
           valid = row[5]
-          columns = decode_string_array(row[6]).map { |c| PostgreSQL::Utils.unquote_identifier(c.strip.gsub('""', '"')) }
+          columns = decode_string_array(row[6]).map { |c| ActiveRecord::ConnectionAdapters::ostgreSQL::Utils.unquote_identifier(c.strip.gsub('""', '"')) }
 
           using, expressions, include, nulls_not_distinct, where = inddef.scan(/ USING (\w+?) \((.+?)\)(?: INCLUDE \((.+?)\))?( NULLS NOT DISTINCT)?(?: WHERE (.+))?\z/m).flatten
 
           orders = {}
           opclasses = {}
-          include_columns = include ? include.split(",").map { |c| PostgreSQL::Utils.unquote_identifier(c.strip.gsub('""', '"')) } : []
+          include_columns = include ? include.split(",").map { |c| ActiveRecord::ConnectionAdapters::PostgreSQL::Utils.unquote_identifier(c.strip.gsub('""', '"')) } : []
 
           if indkey.include?(0)
             columns = expressions
@@ -266,7 +266,7 @@ module ActiverecordBulkPostgresqlAdapter
         [
           table_name,
           fk_info.map do |row|
-            to_table = PostgreSQL::Utils.unquote_identifier(row["to_table"])
+            to_table = ActiveRecord::ConnectionAdapters::PostgreSQL::Utils.unquote_identifier(row["to_table"])
 
             column = decode_string_array(row["conkey_names"])
             primary_key = decode_string_array(row["confkey_names"])
