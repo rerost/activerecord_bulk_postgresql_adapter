@@ -3,6 +3,7 @@
 require "activerecord_bulk_postgresql_adapter/version"
 require "active_record/connection_adapters/postgresql_adapter"
 require "active_record/connection_adapters/postgresql/schema_definitions"
+require "active_record/connection_adapters/postgresql/schema_statements"
 
 module ActiverecordBulkPostgresqlAdapter
   class Adaptor < ActiveRecord::ConnectionAdapters::PostgreSQLAdapter
