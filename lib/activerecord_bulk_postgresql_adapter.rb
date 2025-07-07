@@ -175,7 +175,7 @@ module ActiveRecord
             inddef = row[3]
             comment = row[4]
             valid = row[5]
-            columns = decode_string_array(row[6]).map { |c| ActiveRecord::ConnectionAdapters::ostgreSQL::Utils.unquote_identifier(c.strip.gsub('""', '"')) }
+            columns = decode_string_array(row[6]).map { |c| ActiveRecord::ConnectionAdapters::PostgreSQL::Utils.unquote_identifier(c.strip.gsub('""', '"')) }
 
             using, expressions, include, nulls_not_distinct, where = inddef.scan(/ USING (\w+?) \((.+?)\)(?: INCLUDE \((.+?)\))?( NULLS NOT DISTINCT)?(?: WHERE (.+))?\z/m).flatten
 
