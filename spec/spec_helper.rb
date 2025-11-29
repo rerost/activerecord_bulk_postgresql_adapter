@@ -12,3 +12,14 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+# Monkey patch for Ridgepole compatibility with AR 8.0
+module ActiveRecord
+  module ConnectionAdapters
+    class PostgreSQLAdapter
+      def without_table_options(value)
+        yield
+      end
+    end
+  end
+end

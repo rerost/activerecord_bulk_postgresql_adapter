@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "activerecord_bulk_postgresql_adapter/version"
+require "active_record"
 require "active_record/connection_adapters/postgresql_adapter"
 require "active_record/connection_adapters/postgresql/schema_definitions"
 require "active_record/connection_adapters/postgresql/schema_statements"
@@ -447,7 +448,7 @@ module ActiveRecord
           [
             table_name,
             if scope[:name]
-              find_by_scope(scope_map, scope)
+              find_by_scope(scope_map, scope).first
             end
           ]
         end.to_h
@@ -504,7 +505,7 @@ module ActiveRecord
 
           [
             table_name,
-            find_by_scope(scope_map, scope) || [],
+            find_by_scope(scope_map, scope).first,
           ]
         end.to_h
       end
