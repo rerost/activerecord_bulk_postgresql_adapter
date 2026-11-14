@@ -71,10 +71,10 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord_bulk_postgresql_adapter!
-  bundler (~> 2.6.9)
+  bundler (~> 2.7.0)
   rake (~> 13.3)
   ridgepole
   rspec (~> 3.13.1)
 
 BUNDLED WITH
-   2.6.9
+   2.7.2
