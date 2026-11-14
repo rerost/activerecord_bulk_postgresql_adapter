@@ -41,7 +41,7 @@ GEM
     minitest (5.27.0)
     pg (1.7.0)
     pg (1.7.0-arm64-darwin)
-    rake (13.3.0)
+    rake (13.4.2)
     ridgepole (3.1.2)
       activerecord (>= 6.1, < 8.2)
       diffy
